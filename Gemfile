@@ -77,3 +77,5 @@ end
 
 gem "devise", "~> 4.9"
 
+
+gem "hotwire-livereload", "~> 1.3", :group => :development
