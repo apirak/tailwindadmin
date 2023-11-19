@@ -8,8 +8,7 @@ class TeamsController < ApplicationController
   end
 
   # GET /teams/1 or /teams/1.json
-  def show
-  end
+  def show; end
 
   # GET /teams/new
   def new
@@ -17,8 +16,7 @@ class TeamsController < ApplicationController
   end
 
   # GET /teams/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /teams or /teams.json
   def create
@@ -28,7 +26,7 @@ class TeamsController < ApplicationController
       if @team.save
         @team.members.create(user: current_user, roles: { admin: true })
         format.html do
-          redirect_to team_url(@team), notice: "Team was successfully created."
+          redirect_to team_url(@team), notice: 'Team was successfully created.'
         end
         format.json { render :show, status: :created, location: @team }
       else
@@ -43,7 +41,7 @@ class TeamsController < ApplicationController
     respond_to do |format|
       if @team.update(team_params)
         format.html do
-          redirect_to team_url(@team), notice: "Team was successfully updated."
+          redirect_to team_url(@team), notice: 'Team was successfully updated.'
         end
         format.json { render :show, status: :ok, location: @team }
       else
@@ -59,7 +57,7 @@ class TeamsController < ApplicationController
 
     respond_to do |format|
       format.html do
-        redirect_to teams_url, notice: "Team was successfully destroyed."
+        redirect_to teams_url, notice: 'Team was successfully destroyed.'
       end
       format.json { head :no_content }
     end
@@ -68,9 +66,9 @@ class TeamsController < ApplicationController
   private
 
   def authorize_member
-    unless @team.users.include? current_user
-      return redirect_to root_path, alert: "You are not a member"
-    end
+    return if @team.users.include? current_user
+
+    redirect_to root_path, alert: 'You are not a member'
   end
 
   # Use callbacks to share common setup or constraints between actions.

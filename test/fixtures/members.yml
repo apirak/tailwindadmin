@@ -3,9 +3,9 @@
 one:
   user: one
   team: one
-  roles: 
+  roles: { admin: true }
 
 two:
   user: two
   team: two
-  roles: 
+  roles: { admin: true }
