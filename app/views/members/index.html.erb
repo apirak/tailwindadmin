@@ -1,12 +1,9 @@
 <H1>Invite Member</H1>
-
 <%= form_with url: invite_team_members_path do |form| %>
   <%= form.text_field :email, placeholder: 'Email' %>
   <%= form.submit 'Invite' %>
 <% end %>
-
 <H1>Members</H1>
-
 <% @members.each do |member| %>
   <%= member.user.email %>
   <%= member.roles %>

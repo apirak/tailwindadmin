@@ -1,3 +1,4 @@
+# The MembersController serves as the bridge between the user and the team.
 class MembersController < AuthorizedController
   def index
     @members = @current_team.members
@@ -5,10 +6,10 @@ class MembersController < AuthorizedController
 
   def invite
     email = params[:email]
-    return redirect_with_alert("No email provided") if email.blank?
+    return redirect_with_alert('No email provided') if email.blank?
 
     user = find_or_invite_user(email)
-    return redirect_with_alert("Email invalid") unless user.valid?
+    return redirect_with_alert('Email invalid') unless user.valid?
 
     # TODO: Email that user has been added to this team
 
@@ -31,8 +32,8 @@ class MembersController < AuthorizedController
       team: @current_team,
       roles: {
         admin: false,
-        editor: true,
-      },
+        editor: true
+      }
     )
   end
 end
