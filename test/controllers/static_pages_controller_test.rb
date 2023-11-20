@@ -7,7 +7,7 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get landing_page" do
-    get root_url
+    get landing_url
     assert_response :success
   end
 
