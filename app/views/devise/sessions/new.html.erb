@@ -1,41 +1,4 @@
-<!--
-
-<h2>Log in</h2>
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%# <%= f.check_box :remember_me %>
-      <%# <%= f.label :remember_me %>
-    </div>
-  <% end %>
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
--->
-<div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
-  <!-- Breadcrumb Start -->
-  <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-    <h2 class="text-title-md2 font-bold text-black dark:text-white">
-      Sign In
-    </h2>
-    <nav>
-      <ol class="flex items-center gap-2">
-        <li><a class="font-medium" href="index.html">Dashboard /</a></li>
-        <%= link_to "Sign In", new_user_session_path, class: "font-medium text-primary"%>
-      </ol>
-    </nav>
-  </div>
-  <!-- Breadcrumb End -->
+<div class="mx-auto max-w-screen-lg p-4 md:p-6 2xl:p-10">
   <!-- ====== Forms Section Start -->
   <div class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
     <div class="flex flex-wrap items-center">
@@ -46,8 +9,7 @@
             <%= image_tag asset_path('logo/logo-black.svg'), alt:"logo", class: "dark:hidden w-20" %>
           </a>
           <p class="font-medium 2xl:px-20">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit
-            suspendisse.
+            Tutor Admin help you manage class room, teacher and student
           </p>
           <span class="mt-15 inline-block">
             <%= image_tag asset_path('sign_in.svg'), alt:"logo", class: "h-full"%>
@@ -56,9 +18,9 @@
       </div>
       <div class="w-full border-stroke dark:border-strokedark xl:w-1/2 xl:border-l-2">
         <div class="w-full p-4 sm:p-12.5 xl:p-17.5">
-          <span class="mb-1.5 block font-medium">Start for free</span>
+          <span class="mb-1.5 block font-medium">Tutor Admin</span>
           <h2 class="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
-            Sign In to Tutor Admin
+            Sign In
           </h2>
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <div class="mb-4">
@@ -107,10 +69,8 @@
             </div>
             <div class="mt-6 text-center">
               <p class="font-medium">
-                Don’t have any account?
-                <%= link_to "Sign Up", new_user_registration_path, class: "text-primary" %>
+                <%= render "devise/shared/links" %>
               </p>
-              <%= render "devise/shared/links" %>
             </div>
           <% end %>
         </div>
