@@ -1,0 +1,11 @@
+div x-data="{ checkboxToggle: false }"
+  = @f.label :remember_me, class: "flex cursor-pointer select-none items-center", \
+    for: "checkboxLabelTwo" do
+    - capture do
+      div class="relative"
+        = @f.check_box :remember_me, id: "checkboxLabelTwo", class: "sr-only", \
+          "@change" => "checkboxToggle = !checkboxToggle"
+        div class="mr-4 flex h-5 w-5 items-center justify-center rounded border" :class="checkboxToggle && 'border-primary bg-gray dark:bg-transparent'"
+          span class="opacity-0" :class="checkboxToggle && '!opacity-100'"
+            = image_tag asset_path('checked.svg')
+      | Remember me
