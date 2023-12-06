@@ -23,11 +23,14 @@ html
         .relative.flex.flex-1.flex-col.overflow-y-auto.overflow-x-hidden
           = render 'shared/header'
           main
-            p.notice
-              = notice
-            p.alert
-              = alert
-            = yield
+            div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10"
+              div class="mx-auto max-w-270"
+                = render 'shared/page_title'
+                p.notice
+                  = notice
+                p.alert
+                  = alert
+                = yield
     - else
       main
         p.notice
